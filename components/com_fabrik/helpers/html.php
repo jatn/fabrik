@@ -952,7 +952,11 @@ if (!$j3)
 
 			if (!self::inAjaxLoadedPage())
 			{
-				$document->addScript($jsAssetBaseURI . 'media/com_fabrik/js/lib/require/require.js');
+				/* Moved to system plugin so we load only just before our script. This is to attempt to fix an issue with widgetkit
+				 *  ....Uncaught Error: Mismatched anonymous define() module: function ($){var toFix=["wheel","mousewheel","DOMMouseScroll","MozMousePixelScroll"]
+				 */
+
+				// $document->addScript($jsAssetBaseURI . 'media/com_fabrik/js/lib/require/require.js');
 				JText::script('COM_FABRIK_LOADING');
 				$src[] = 'media/com_fabrik/js/fabrik' . $ext;
 				$src[] = 'media/com_fabrik/js/window' . $ext;
